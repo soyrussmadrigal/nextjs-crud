@@ -10,7 +10,23 @@ export const useTasks = () => {
 };
 
 export const TaskProvider = ({ children }) => {
-  const tasks = [];
+  const tasks = [
+    {
+      id: 1,
+      title: "my first task",
+      description: "some description",
+    },
+    {
+      id: 2,
+      title: "my second task",
+      description: "some description 2",
+    },
+    {
+      id: 3,
+      title: "my third task",
+      description: "some description 3",
+    },
+  ];
   return (
     <TaskContext.Provider
       value={{
