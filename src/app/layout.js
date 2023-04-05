@@ -1,3 +1,4 @@
+import { TaskProvider } from "@/context/TaskContext";
 import "./globals.css";
 
 export const metadata = {
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <h1>Navigation</h1>
-        {children}
+        <TaskProvider>{children}</TaskProvider>
       </body>
     </html>
   );
