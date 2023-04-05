@@ -1,10 +1,9 @@
 "use client";
-import { useContext } from 'react';
-import { TaskContext } from "../../context/TaskContext";
+import { useTasks } from "../../context/TaskContext";
 
 function page() {
-  const values = useContext(TaskContext);
-  console.log(values);
+  const { tasks } = useTasks();
+  console.log(tasks);
   return <div>About Page</div>;
 }
 
