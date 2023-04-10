@@ -14,7 +14,8 @@ export const TaskCard = ({ task }) => {
       <button
         onClick={(e) => {
           e.stopPropagation();
-          deleteTask(task.id);
+          const accept = window.confirm("Are you sure you want to");
+          if (accept) deleteTask(task.id);
         }}
       >
         Delete
