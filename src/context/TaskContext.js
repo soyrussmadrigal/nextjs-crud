@@ -11,23 +11,7 @@ export const useTasks = () => {
 };
 
 export const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "my first task",
-      description: "some description",
-    },
-    {
-      id: 2,
-      title: "my second task",
-      description: "some description 2",
-    },
-    {
-      id: 3,
-      title: "my third task",
-      description: "some description 3",
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   const createTask = (title, description) =>
     setTasks([
@@ -41,12 +25,20 @@ export const TaskProvider = ({ children }) => {
 
   const deleteTask = (id) =>
     setTasks([...tasks.filter((task) => task.id !== id)]);
+
+  const updateTask = (id, newData) =>
+    setTasks([
+      ...tasks.map((task) =>
+        task.id === id ? { ...task, ...newData } : task
+      ),
+    ]);
   return (
     <TaskContext.Provider
       value={{
         tasks,
         createTask,
         deleteTask,
+        updateTask,
       }}
     >
       {children}
