@@ -37,20 +37,33 @@ function Page({ params }) {
   }, []);
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        placeholder="Write a title"
-        {...register("title", { required: true })}
-      />
-      {errors.title && <span>This field is required</span>}
+    <div className="flex justify-center items-center h-full">
+      <form onSubmit={onSubmit} className="bg-gray-700 p-10">
+        <h2 className="text-2xl font-bold text-white mb-5 text-center">
+          New Task
+        </h2>
+        <input
+          className="bg-gray-800 py-3 px-4 mb-2 block focus:outline-none focus:outline w-full"
+          placeholder="Write a title"
+          {...register("title", { required: true })}
+        />
+        {errors.title && (
+          <span className="text-red-500">This field is required</span>
+        )}
 
-      <textarea
-        placeholder="Write a description"
-        {...register("description", { required: true })}
-      />
-      {errors.description && <span>This field is required</span>}
-      <button>Save</button>
-    </form>
+        <textarea
+          className="bg-gray-800 py-3 px-4 mb-2 block focus:outline-none focus:outline w-full"
+          placeholder="Write a description"
+          {...register("description", { required: true })}
+        />
+        {errors.description && (
+          <span className="text-red-500">This field is required</span>
+        )}
+        <button className="bg-green-500 py-3 px-4 mb-2 block focus:outline-none focus:outline w-full">
+          Save
+        </button>
+      </form>
+    </div>
   );
 }
 
